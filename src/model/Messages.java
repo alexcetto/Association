@@ -1,9 +1,8 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by alexandrecetto on 18/03/2016.
@@ -15,11 +14,16 @@ public class Messages {
 
     @Column(nullable = false)
     private String mess;
-    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
-    @Column(nullable = false)
+
+
+    @Column(name = "users", nullable = false)
+    @OneToMany
     private User user;
 
+    public Messages() {
+    }
 
 
     @Id

@@ -8,12 +8,10 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 import java.util.Scanner.*;
-/**
- * Created by alexandrecetto on 18/03/2016.
- */
 
 @Entity
 //@NamedQuery(name="showAllUsers", query="SELECT u FROM users u")
+@Table(name = "users")
 public class User {
 
     @Id @GeneratedValue
@@ -93,9 +91,15 @@ public class User {
         this.age = age;
     }
 
+
+    /**
+     * Générateur de sel
+     * @return du sel...
+     * @throws NoSuchAlgorithmException
+     */
     private static byte[] getSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-        byte[] salt = new byte[16];
+        byte[] salt = new byte[32];
         sr.nextBytes(salt);
         for(int i = 0; i<16; i++) {
             System.out.print(salt[i] & 0x00FF);
@@ -124,8 +128,10 @@ public class User {
             byte[] res = key.getEncoded( );
             return res;
 
-        } catch( NoSuchAlgorithmException | InvalidKeySpecException e ) {
+        } catch( NoSuchAlgorithmException e ) {
             throw new RuntimeException( e );
+        } catch (InvalidKeySpecException e) {
+            throw new RuntimeException(e);
         }
     }
 }
