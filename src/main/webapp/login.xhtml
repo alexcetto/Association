@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       >
 
     <ui:composition template="WEB-INF/templates/classic.xhtml">
@@ -10,23 +11,18 @@
         <ui:define name="title">Connexion</ui:define>
 
         <ui:define name="main">
-            <h1>Connexion</h1>
+            <div class="col-md-4 col-md-offset-4">
+            <h:form class="form-signin">
+            <h:messages showDetail="true"/>
+            <h2 class="form-signin-heading">Please sign in</h2>
             <hr/>
-            <h:form>
-                <h:messages showDetail="true"/>
-                <table border="0">
-                    <tr>
-                        <td><h:outputLabel value="Username : "/></td>
-                        <td><h:inputText value="#{loginController.user.username}"/></td>
-                    </tr>
-                    <tr>
-                        <td><h:outputLabel value="Password : "/></td>
-                        <td><h:inputSecret value="#{loginController.user.password}"/></td>
-                    </tr>
-                </table>
-
-                <h:commandButton value="Se connecter" action="#{loginController.doLogin}"/>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <h:inputText pt:placeholder="Username" class="form-control" value="#{loginController.user.username}"/>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <h:inputSecret pt:placeholder="Password" class="form-control" value="#{loginController.user.password}"/>
+            <h:commandButton class="btn btn-lg btn-primary btn-block" value="Se connecter" action="#{loginController.doLogin}"/>
             </h:form>
+        </div>
 
         </ui:define>
 
