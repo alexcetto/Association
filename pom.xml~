@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>fr.univmed.jeecourse</groupId>
-    <artifactId>jsf-security-bootstrap</artifactId>
+    <artifactId>jsf-simple</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>JSF - Shiro - Bootstrap</name>
+    <name>JSF - Simple</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -91,50 +91,6 @@
             <scope>test</scope>
         </dependency>
         <!-- /Easymock -->
-        
-        <!-- Shiro for security -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-aspectj</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-ehcache</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <!-- /Shiro for security -->
-        
-        <!-- Shiro Facelet tags -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-faces</artifactId>
-            <version>2.0-SNAPSHOT</version>
-        </dependency>
-        <!-- /Shiro Facelet tags -->
-        
-        <!-- Apache commons -->
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-        <!-- /Apache commons -->
     </dependencies>
 
     <build>
