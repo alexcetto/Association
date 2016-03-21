@@ -15,32 +15,32 @@
                 <table border="0">
                     <tr>
                         <td><h:outputLabel value="ISBN : "/></td>
-                        <td><h:inputText value="#{bookController.book.isbn}" required="true"/>
+                        <td><h:inputText value="#{stampController.book.isbn}" required="true"/>
                         </td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Title :"/></td>
-                        <td><h:inputText value="#{bookController.book.title}"/></td>
+                        <td><h:inputText value="#{stampController.book.title}"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Price : "/></td>
-                        <td><h:inputText value="#{bookController.book.price}"/></td>
+                        <td><h:inputText value="#{stampController.book.price}"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Description  : "/></td>
-                        <td><h:inputTextarea value="#{bookController.book.description}" cols="20" rows="5"/></td>
+                        <td><h:inputTextarea value="#{stampController.book.description}" cols="20" rows="5"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Number of pages : "/></td>
-                        <td><h:inputText value="#{bookController.book.nbOfPage}"/></td>
+                        <td><h:inputText value="#{stampController.book.nbOfPage}"/></td>
                     </tr>
                 </table>
 
-                <h:commandButton value="Sauver" action="#{bookController.doSave}"/>
+                <h:commandButton value="Sauver" action="#{stampController.doSave}"/>
 
             </h:form>
             <h:form>
-                <h:commandButton value="Annuler" action="#{bookController.doCancel}"/>
+                <h:commandButton value="Annuler" action="#{stampController.doCancel}"/>
             </h:form>
             <hr/>
         </ui:define>

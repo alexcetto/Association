@@ -4,46 +4,41 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:shiro="http://shiro.apache.org/tags">
+      xmlns:shiro="http://shiro.apache.org/tags"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/WEB-INF/templates/classic.xhtml">
 
-        <ui:define name="title">Liste des livres</ui:define>
-
+        <ui:define name="title">Galerie de timbres</ui:define>
         <ui:define name="main">
             <h:form>
-                <h1>Liste des livres</h1>
+                <h1>Galerie de timbres</h1>
                 <hr/>
-                <h:dataTable value="#{bookController.bookList}" var="bk" border="1">
-                    <h:column>
-                        <h:selectBooleanCheckbox value="#{bk.selected}"/>
-                    </h:column>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="ISBN"/>
-                        </f:facet>
-                        <h:outputText value="#{bk.isbn}"/>
-                    </h:column>
+                <p:dataList value="#{stampController.stampList}" var="stmp">           
+                    
+                    <div class="card col-md-3">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">sélectionné : <p:selectBooleanCheckbox value="#{stmp.selected}"/></li>
+                          <li class="list-group-item">Référence : #{stmp.ref}</li>
+                          <li class="list-group-item">Titre : <p:commandLink action="#{stampController.doEdit}" value="#{stmp.title}" /></li>
+                        </ul>
+                    </div>        
+                </p:dataList>
+                
+                
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Titre"/>
-                        </f:facet>
-                        <h:commandLink action="#{bookController.doEdit}" value="#{bk.title}" />
-                    </h:column>
-
-                </h:dataTable>
-
-                <shiro:hasPermission name="book:add">
-                    <h:commandLink action="#{bookController.doNew}">Nouveau livre</h:commandLink>
+                
+                <shiro:hasPermission name="stamp:add">
+                    <h:commandLink action="#{stampController.doNew}">Nouveau livre</h:commandLink>
                 </shiro:hasPermission>
                 <h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
-                <shiro:hasPermission name="book:delete">
-                    <h:commandLink action="#{bookController.doDelete}" onclick="return confirmDelete();">Supprimer la s&eacute;lection</h:commandLink>
+                <shiro:hasPermission name="stamp:delete">
+                    <h:commandLink action="#{stampController.doDelete}" onclick="return confirmDelete();">Supprimer la s&eacute;lection</h:commandLink>
                 </shiro:hasPermission>
             </h:form>
+            
             <hr/>
-        </ui:define>
+            </ui:define>
     </ui:composition>
 </html>

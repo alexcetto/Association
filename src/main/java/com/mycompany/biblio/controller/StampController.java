@@ -1,7 +1,7 @@
 package com.mycompany.biblio.controller;
 
-import com.mycompany.biblio.business.BookEJB;
-import com.mycompany.biblio.model.Book;
+import com.mycompany.biblio.business.StampEJB;
+import com.mycompany.biblio.model.Stamp;
 
 import javax.ejb.EJB;
 import java.util.Iterator;
@@ -14,22 +14,22 @@ import javax.faces.model.ListDataModel;
 
 @ManagedBean
 @SessionScoped
-public class BookController {
+public class StampController {
 
     // ======================================
     // =             Attributes             =
     // ======================================
 
     @EJB
-    private BookEJB bookEJB;
+    private StampEJB stampEJB;
 
     private HtmlDataTable dataTable;
 
-    private Book book = new Book();
-    private ListDataModel bookList; // j'ai utilisé un ListDataModel et pas List parce que cela permet de retrouver l'élément sélectionné dans la liste (pour l'édition d'un livre)
+    private Stamp stamp = new Stamp();
+    private ListDataModel stampList; // j'ai utilisé un ListDataModel et pas List parce que cela permet de retrouver l'élément sélectionné dans la liste (pour l'édition d'un livre)
 
-    private void updateBookList() {
-        bookList = new ListDataModel(bookEJB.findAll());
+    private void updateStampList() {
+        stampList = new ListDataModel(stampEJB.findAll());
     }
 
     // ======================================
@@ -37,12 +37,12 @@ public class BookController {
     // ======================================
 
     public String doNew() {
-        book = new Book();
+        stamp = new Stamp();
         return "newBook.xhtml";
     }
 
     public String doCreate() {
-        book = bookEJB.create(book);
+        stamp = stampEJB.create(stamp);
         return "listBooks.xhtml";
     }
     
@@ -51,14 +51,14 @@ public class BookController {
     }
 
     public String doDelete() {
-        List<Book> books = (List<Book>)bookList.getWrappedData();
-        bookEJB.delete(onlySelected(books));
-        updateBookList();
+        List<Stamp> stamps = (List<Stamp>)stampList.getWrappedData();
+        stampEJB.delete(onlySelected(stamps));
+        updateStampList();
         return "listBooks.xhtml";
     }
 
-    private List<Book> onlySelected(List<Book> list) {
-        for (Iterator<Book> it = list.iterator(); it.hasNext(); ) {
+    private List<Stamp> onlySelected(List<Stamp> list) {
+        for (Iterator<Stamp> it = list.iterator(); it.hasNext(); ) {
             if (!(it.next().isSelected()))
                 it.remove();
         }
@@ -66,33 +66,33 @@ public class BookController {
     }
 
     public String doEdit() {
-        book = (Book)bookList.getRowData(); // Voici comment on trouve le livre sélectionné
+        stamp = (Stamp)stampList.getRowData(); // Voici comment on trouve le livre sélectionné
         return "editBook.xhtml";
     }
 
     public String doSave() {
-        book = bookEJB.update(book);
+        stamp = stampEJB.update(stamp);
         return "listBooks.xhtml";
     }
     // ======================================
     // =          Getters & Setters         =
     // ======================================
 
-    public Book getBook() {
-        return book;
+    public Stamp getStamp() {
+        return stamp;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setStamp(Stamp stamp) {
+        this.stamp = stamp;
     }
 
-    public ListDataModel getBookList() {
-        updateBookList();
-        return bookList;
+    public ListDataModel getStampList() {
+        updateStampList();
+        return stampList;
     }
 
-    public void setBookList(ListDataModel bookList) {
-        this.bookList = bookList;
+    public void setBookList(ListDataModel stampList) {
+        this.stampList = stampList;
     }
 
     public HtmlDataTable getDataTable() {

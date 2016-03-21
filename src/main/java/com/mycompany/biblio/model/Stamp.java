@@ -16,10 +16,10 @@ import javax.persistence.Transient;
 
 
 @Entity
-@NamedQuery(name = Book.FIND_ALL, query = "SELECT b FROM Book b")
-public class Book implements Serializable {
-   public final static String FIND_ALL = "Book.findAll";
-   public final static String Del_SOM = "Book.delete";
+@NamedQuery(name = Stamp.FIND_ALL, query = "SELECT b FROM Stamp b")
+public class Stamp implements Serializable {
+   public final static String FIND_ALL = "Stamp.findAll";
+   public final static String Del_SOM = "Stamp.delete";
 
     @Id
     @GeneratedValue
@@ -27,10 +27,11 @@ public class Book implements Serializable {
     @Column(nullable = false)
     private String title;
     private Float price;
+    private String country;
     @Column(length = 2000)
     private String description;
-    private String isbn;
-    private Integer nbOfPage;
+    private String reference;
+    private String image;
     @Transient
     private Boolean selected;
 
@@ -38,15 +39,16 @@ public class Book implements Serializable {
     // =            Constructors            =
     // ======================================
 
-    public Book() {
+    public Stamp() {
     }
 
-    public Book(String title, Float price, String description, String isbn, Integer nbOfPage) {
+    public Stamp(String title, Float price, String country, String description, String ref, String image) {
         this.title = title;
         this.price = price;
+        this.country = country;
         this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
+        this.reference = ref;
+        this.image = image;
         
     }
 
@@ -73,6 +75,14 @@ public class Book implements Serializable {
         this.price = price;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    
     public String getDescription() {
         return description;
     }
@@ -81,20 +91,20 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getRef() {
+        return reference;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setRef(String ref) {
+        this.reference = ref;
     }
 
-    public Integer getNbOfPage() {
-        return nbOfPage;
+    public String getImage() {
+        return image;
     }
 
-    public void setNbOfPage(Integer nbOfPage) {
-        this.nbOfPage = nbOfPage;
+    public void setImage(String img) {
+        this.image = image;
     }
 
     public Boolean isSelected() {
@@ -107,24 +117,6 @@ public class Book implements Serializable {
 
     public void setSelected(Boolean selected) {
         this.selected = selected;
-    }
-
-    // ======================================
-    // =         hash, equals, toString     =
-    // ======================================
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Book");
-        sb.append("{id=").append(id);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", price=").append(price);
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", isbn='").append(isbn).append('\'');
-        sb.append(", nbOfPage=").append(nbOfPage);
-        sb.append('}');
-        return sb.toString();
     }
 }
 

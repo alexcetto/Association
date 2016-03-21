@@ -1,12 +1,12 @@
 package com.mycompany.biblio.business;
 
-import com.mycompany.biblio.model.Book;
+import com.mycompany.biblio.model.Stamp;
 import java.util.List;
 import javax.persistence.*;
 import javax.ejb.Stateless;
 
 @Stateless
-public class BookEJB {
+public class StampEJB {
 
     // ======================================
     // =             Attributes             =
@@ -17,27 +17,27 @@ public class BookEJB {
     // ======================================
     // =           Public Methods           =
     // ======================================
-    public List<Book> findAll() {
-        Query query = em.createNamedQuery(Book.FIND_ALL);
+    public List<Stamp> findAll() {
+        Query query = em.createNamedQuery(Stamp.FIND_ALL);
         return query.getResultList();
     }
 
-    public Book create(Book book) {
-        em.persist(book);
-        return book;
+    public Stamp create(Stamp stamp) {
+        em.persist(stamp);
+        return stamp;
     }
 
-    public Book update(Book book) {
-        return em.merge(book);
+    public Stamp update(Stamp stamp) {
+        return em.merge(stamp);
     }
 
-    public void delete(List<Book> list) {
-        for (Book book : list) {
-            delete(book);
+    public void delete(List<Stamp> list) {
+        for (Stamp stamp : list) {
+            delete(stamp);
         }
     }
 
-    public void delete(Book book) {
-        em.remove(em.merge(book));
+    public void delete(Stamp stamp) {
+        em.remove(em.merge(stamp));
     }
 }

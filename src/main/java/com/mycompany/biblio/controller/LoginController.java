@@ -1,6 +1,6 @@
 package com.mycompany.biblio.controller;
 
-import com.mycompany.biblio.business.BookEJB;
+import com.mycompany.biblio.business.StampEJB;
 import com.mycompany.biblio.model.User;
 import javax.faces.bean.ManagedBean;
 import javax.ejb.EJB;
@@ -27,7 +27,7 @@ public class LoginController {
     // ======================================
 
     @EJB
-    private BookEJB bookEJB;
+    private StampEJB stampEJB;
 
     private User user= new User();
 
