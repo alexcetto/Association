@@ -16,32 +16,27 @@
                 <hr/>
 
                 <p:dataList value="#{stampController.stampList}" var="stmp" styleClass="datalist-noborder">           
-                    
-                    <div class="card col-md-3">
-                        <div class="card">
-                            <div class="card-block">
-                              <h4 class="card-title">#{stmp.title}"</h4>
-                              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                            </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
                             <h:graphicImage value="http://www.jolpress.com/sites/default/files/styles/article_content_small/public/field/image/timbre-marianne.jpg?itok=0VIwCX8l" />
-                            <div class="card-block">
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Référence : #{stmp.ref}</li>
-                                <li class="list-group-item">Pays : #{stmp.country}</li>
-                                <li class="list-group-item">Description : #{stmp.description}</li>
-                              </ul>
-                              <h:commandButton value="edit" type="submit" action="#{stampController.doEdit}" styleClass="btn btn-primary" />
+                            <div class="caption">
+                                <h3>#{stmp.title}</h3>
+                                <h6>#{stmp.ref}</h6>
+                                <p>...</p>
+                                <ul>
+                                <li>Prix : #{stmp.price}</li>
+                                <li>Pays : #{stmp.country}</li>
+                                <li>Description : #{stmp.description}</li>
+                                </ul>
+                                <hr/>
+                                <div class="btn-group">
+                                <h:commandButton value="Edit" type="submit" role="group" action="#{stampController.doEdit}" styleClass="btn btn-primary" />
+                                <h:commandButton value="Delete" type="submit" role="group" action="#{stampController.doDelete}" styleClass="btn btn-danger" />
+                                </div>
                             </div>
-                        </div> 
-                    </div>        
+                          </div>
+                        </div>
                 </p:dataList>
-                
-                <style type="text/css">
-                    .ui-datalist-data {
-                        list-style:none;
-                    }
-                </style>
-
                 
                 <shiro:hasPermission name="stamp:add">
                     <h:commandLink action="#{stampController.doNew}">Nouveau livre</h:commandLink>

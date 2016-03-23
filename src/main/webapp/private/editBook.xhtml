@@ -6,33 +6,33 @@
 
     <ui:composition template="/WEB-INF/templates/classic.xhtml">
 
-        <ui:define name="title">Edition de livre</ui:define>
+        <ui:define name="title">Edition de timbre</ui:define>
 
         <ui:define name="main">
-            <h1>Edit a book</h1>
+            <h1>Edit a stamp</h1>
             <hr/>
             <h:form>
                 <table border="0">
                     <tr>
-                        <td><h:outputLabel value="ISBN : "/></td>
-                        <td><h:inputText value="#{stampController.book.isbn}" required="true"/>
+                        <td><h:outputLabel value="Pays : "/></td>
+                        <td><h:inputText value="#{stampController.stamp.country}" required="true"/>
                         </td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Title :"/></td>
-                        <td><h:inputText value="#{stampController.book.title}"/></td>
+                        <td><h:inputText value="#{stampController.stamp.title}"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Price : "/></td>
-                        <td><h:inputText value="#{stampController.book.price}"/></td>
+                        <td><h:inputText value="#{stampController.stamp.price}"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel value="Description  : "/></td>
-                        <td><h:inputTextarea value="#{stampController.book.description}" cols="20" rows="5"/></td>
+                        <td><h:inputTextarea value="#{stampController.stamp.description}" cols="20" rows="5"/></td>
                     </tr>
                     <tr>
-                        <td><h:outputLabel value="Number of pages : "/></td>
-                        <td><h:inputText value="#{stampController.book.nbOfPage}"/></td>
+                        <td><h:outputLabel value="Image : "/></td>
+                        <td><h:inputText value="#{stampController.stamp.image}"/></td>
                     </tr>
                 </table>
 
