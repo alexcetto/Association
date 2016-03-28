@@ -30,3 +30,25 @@ input.ng-invalid {
     border : 1px solid #e5e5e5;
     border-radius: 0.25rem;
 }
+
+
+
+
+/** CHAT PART **/
+body#chatPage > .container{
+    width: 90%;
+    margin: 0 auto;
+}
+#chatContainer{
+    background: rgb(173,216,230);
+    border-bottom: 3px solid #245269;
+}
+
+#chatContainer > div.msg:nth-child(odd){
+    background:rgb(235, 245, 249);
+    padding: 1em 1.5em 1em 1.5em;
+}
+#chatContainer > div.msg:nth-child(even){
+    background:none;
+    padding: 1em 1.5em 1em 1.5em;
+}

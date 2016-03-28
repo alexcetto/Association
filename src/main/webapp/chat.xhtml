@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+
+        <title><ui:insert name="title">Chat</ui:insert></title>
+
+	<meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Bootstrap -->
+        <h:outputStylesheet name="third/bootstrap/css/bootstrap.min.css" />
+        <!--<h:outputStylesheet library="third/bootstrap/css" name="bootstrap-theme.min.css" />-->
+
+	<!-- App style -->    
+        <h:outputStylesheet library="css" name="main.css" />
+
+        <link rel="shortcut icon" type="image/png" href="resources/images/favicon.png" />
+        <link href="resources/css/main.css" rel="stylesheet" type="text/css"/>
+              
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </h:head>
+        
+        <h:body id="chatPage">
+            
+            <ui:insert name="menu">
+                <ui:include src="WEB-INF/sections/menu.xhtml" />
+            </ui:insert>
+            
+            <!-- Page content -->
+            <div class="container theme-showcase" role="main">
+                <h:form prependId="false">
+                    <h:panelGrid columns="2">
+                        Name: <p:inputText id="userSender" value="#{messageBean.message.user}"/>
+                        Text: <p:inputText id="textSender" value="#{messageBean.message.message}"/>
+                        <p:commandButton type="reset" value="Clear"/>
+                        <p:commandButton value="Send!" actionListener="#{messageBean.sendMessage}"/>
+                    </h:panelGrid>
+
+                    <p:remoteCommand name="nextMessage" actionListener="#{messageBean.firstUnreadMessage}"
+                                     oncomplete="updateMessages(xhr, status, args);"/>
+                </h:form>
+                <h3>Live chat</h3>
+                <div id="chatContainer"></div>
+            </div>
+            
+            
+        </h:body>
+        <!-- Javascript libraries -->
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <h:outputScript name="third/jquery/jquery.min.js" />
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+        <h:outputScript name="third/bootstrap/js/bootstrap.min.js" />
+        <!-- Holder (for image zones) -->
+        <h:outputScript name="third/holder/holder.min.js" />
+	<!-- App js -->
+        <h:outputScript library="js" name="main.js" />
+        <script type="text/javascript">
+            
+
+        </script>
+</html>
