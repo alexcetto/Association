@@ -19,14 +19,14 @@
                 <p:dataList value="#{stampController.stampList}" var="stmp" styleClass="datalist-noborder">           
                     <div class="row thumbnail">
                         <div class="col-sm-3">
-                            
-                                <h:graphicImage class="img-thumbnail" value="#{stmp.image}" width="250px" height="400px" />
-                           
+                            <object data="#{stmp.image}" class="img-thumbnail" type="image/png" width="250px" height="400px">
+                                <h:graphicImage class="img-thumbnail" value="http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png" width="250px" height="400px" />
+                            </object>
                         </div>
                         <div class="col-sm-9">
                             <div class="caption">
                                 <h3>#{stmp.title}</h3>
-                                <h6>#{stmp.reference}</h6>
+                                <h6><span class="label label-info">#{stmp.reference}</span></h6>
                                 <hr/>
                                 <ul>
                                     <li><b>Année :</b> #{stmp.releaseyear}</li>
