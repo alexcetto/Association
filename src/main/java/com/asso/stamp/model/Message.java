@@ -1,4 +1,4 @@
-package com.mycompany.biblio.model;
+package com.asso.stamp.model;
 
 import java.io.Serializable;
 import java.util.Date;

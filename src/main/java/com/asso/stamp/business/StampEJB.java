@@ -1,6 +1,6 @@
-package com.mycompany.biblio.business;
+package com.asso.stamp.business;
 
-import com.mycompany.biblio.model.Stamp;
+import com.asso.stamp.model.Stamp;
 import java.util.List;
 import javax.persistence.*;
 import javax.ejb.Stateless;

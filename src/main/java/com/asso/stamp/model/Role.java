@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.biblio.model;
+package com.asso.stamp.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -12,24 +12,16 @@ import javax.persistence.*;
  * @author morgan
  */
 @Entity
-@Table(name="role_permissions")
-public class Permission implements Serializable {
+@Table(name="user_roles")
+public class Role implements Serializable {
     @Id
     @GeneratedValue
     private long id;
     
-    @Column(name="permission")
-    private String permission;
+    @Column(name="username")
+    private String username;
     @Column(name="role_name")
     private String role;
-
-    public String getPermission() {
-        return permission;
-    }
-
-    public void setPermission(String permission) {
-        this.permission = permission;
-    }
 
     public String getRole() {
         return role;
@@ -37,5 +29,13 @@ public class Permission implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

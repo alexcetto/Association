@@ -1,4 +1,4 @@
-package com.mycompany.biblio.business;
+package com.asso.stamp.business;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -10,8 +10,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import org.primefaces.context.RequestContext;
-import com.mycompany.biblio.controller.MessageManagerLocal;
-import com.mycompany.biblio.model.Message;
+import com.asso.stamp.controller.MessageManagerLocal;
+import com.asso.stamp.model.Message;
  
 
 @ManagedBean

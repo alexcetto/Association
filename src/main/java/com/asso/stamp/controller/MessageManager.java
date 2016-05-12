@@ -1,4 +1,4 @@
-package com.mycompany.biblio.controller;
+package com.asso.stamp.controller;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import com.mycompany.biblio.model.Message;
+import com.asso.stamp.model.Message;
  
 
 @Singleton

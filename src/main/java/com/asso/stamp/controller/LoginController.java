@@ -1,7 +1,7 @@
-package com.mycompany.biblio.controller;
+package com.asso.stamp.controller;
 
-import com.mycompany.biblio.business.StampEJB;
-import com.mycompany.biblio.model.User;
+import com.asso.stamp.business.StampEJB;
+import com.asso.stamp.model.User;
 import javax.faces.bean.ManagedBean;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;

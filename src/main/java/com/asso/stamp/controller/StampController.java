@@ -1,7 +1,7 @@
-package com.mycompany.biblio.controller;
+package com.asso.stamp.controller;
 
-import com.mycompany.biblio.business.StampEJB;
-import com.mycompany.biblio.model.Stamp;
+import com.asso.stamp.business.StampEJB;
+import com.asso.stamp.model.Stamp;
 
 import javax.ejb.EJB;
 import java.util.Iterator;
@@ -38,22 +38,22 @@ public class StampController {
 
     public String doNew() {
         stamp = new Stamp();
-        return "newBook.xhtml";
+        return "newStamp.xhtml";
     }
 
     public String doCreate() {
         stamp = stampEJB.create(stamp);
-        return "listBooks.xhtml";
+        return "listStamp.xhtml";
     }
     
     public String doCancel() {
-        return "listBooks.xhtml";
+        return "listStamp.xhtml";
     }
 
     public String doDelete(Stamp stmp) {
         stampEJB.delete(stmp);
         updateStampList();
-        return "listBooks.xhtml";
+        return "listStamp.xhtml";
     }
 
     private List<Stamp> onlySelected(List<Stamp> list) {
@@ -66,12 +66,12 @@ public class StampController {
 
     public String doEdit() {
         stamp = (Stamp)stampList.getRowData(); // Voici comment on trouve le livre sélectionné
-        return "editBook.xhtml";
+        return "editStamp.xhtml";
     }
 
     public String doSave() {
         stamp = stampEJB.update(stamp);
-        return "listBooks.xhtml";
+        return "listStamp.xhtml";
     }
     // ======================================
     // =          Getters & Setters         =
@@ -90,7 +90,7 @@ public class StampController {
         return stampList;
     }
 
-    public void setBookList(ListDataModel stampList) {
+    public void setStampList(ListDataModel stampList) {
         this.stampList = stampList;
     }
 
