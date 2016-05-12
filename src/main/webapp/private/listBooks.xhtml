@@ -12,16 +12,17 @@
         <ui:define name="title">Galerie de timbres</ui:define>
         <ui:define name="main">
             <h:form>
+                <div class="container-fluid">
                 <h1>Galerie de timbres</h1>
                 <hr/>
-
+                <div class="row">
                 <p:dataList value="#{stampController.stampList}" var="stmp" styleClass="datalist-noborder">           
                     <div class="col-sm-6 col-md-3">
                         <div class="thumbnail">
                             <h:graphicImage value="http://www.jolpress.com/sites/default/files/styles/article_content_small/public/field/image/timbre-marianne.jpg?itok=0VIwCX8l" />
                             <div class="caption">
                                 <h3>#{stmp.title}</h3>
-                                <h6>#{stmp.ref}</h6>
+                                <h6>#{stmp.reference}</h6>
                                 <p>...</p>
                                 <ul>
                                 <li>Prix : #{stmp.price}</li>
@@ -37,6 +38,10 @@
                           </div>
                         </div>
                 </p:dataList>
+                </div>
+                </div>
+                
+                
                 
                 <shiro:hasPermission name="stamp:add">
                     <h:commandLink action="#{stampController.doNew}">Nouveau livre</h:commandLink>

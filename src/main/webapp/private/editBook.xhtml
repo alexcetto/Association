@@ -11,38 +11,75 @@
         <ui:define name="main">
             <h1>Edit a stamp</h1>
             <hr/>
-            <h:form>
-                <table border="0">
-                    <tr>
-                        <td><h:outputLabel value="Pays : "/></td>
-                        <td><h:inputText value="#{stampController.stamp.country}" required="true"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><h:outputLabel value="Title :"/></td>
-                        <td><h:inputText value="#{stampController.stamp.title}"/></td>
-                    </tr>
-                    <tr>
-                        <td><h:outputLabel value="Price : "/></td>
-                        <td><h:inputText value="#{stampController.stamp.price}"/></td>
-                    </tr>
-                    <tr>
-                        <td><h:outputLabel value="Description  : "/></td>
-                        <td><h:inputTextarea value="#{stampController.stamp.description}" cols="20" rows="5"/></td>
-                    </tr>
-                    <tr>
-                        <td><h:outputLabel value="Image : "/></td>
-                        <td><h:inputText value="#{stampController.stamp.image}"/></td>
-                    </tr>
-                </table>
-
-                <h:commandButton value="Sauver" action="#{stampController.doSave}"/>
-
+            
+            <!-- FORMULAIRE -->
+            <h:form class="form-horizontal">
+                <!-- TITRE -->
+                <div class="form-group">
+                    <label for="inputTitle" class="col-sm-1 control-label">Titre :</label>
+                    <div class="col-sm-5">
+                        <h:inputText value="#{stampController.stamp.title}" required="true" class="form-control" id="inputTitle"/>
+                    </div>
+                </div>
+                
+                <!-- REFERENCE -->
+                <div class="form-group">
+                    <label for="inputReference" class="col-sm-1 control-label">Ref :</label>
+                    <div class="col-sm-5">
+                        <h:inputText value="#{stampController.stamp.reference}" required="true" class="form-control" id="inputReference"/>
+                    </div>
+                </div>
+                
+                <!-- YEAR -->
+                <div class="form-group">
+                    <label for="inputReleaseyear" class="col-sm-1 control-label">Année :</label>
+                    <div class="col-sm-5">
+                        <h:inputText value="#{stampController.stamp.releaseyear}" required="true" class="form-control" id="inputReleaseyear"/>
+                    </div>
+                </div>
+                
+                <!-- PAYS -->
+                <div class="form-group">
+                    <label for="inputCountry" class="col-sm-1 control-label">Pays :</label>
+                    <div class="col-sm-5">
+                        <h:inputText value="#{stampController.stamp.country}" required="true" class="form-control" id="inputCountry"/>
+                    </div>
+                </div>
+                
+                <!-- PRIX -->
+                <div class="form-group">
+                    <label for="inputPrice" class="col-sm-1 control-label">Prix :</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <h:inputText value="#{stampController.stamp.price}" required="true" class="form-control" id="inputPrice"/>
+                            <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IMAGE -->
+                <div class="form-group">
+                    <label for="inputImage" class="col-sm-1 control-label">Image :</label>
+                    <div class="col-sm-5">
+                        <h:inputText value="#{stampController.stamp.image}" required="true" class="form-control" id="inputImage"/>
+                    </div>
+                </div>
+                
+                <!-- DESCRIPTION -->
+                <div class="form-group">
+                    <label for="inputSummary" class="col-sm-1 control-label">Resumé :</label>
+                    <div class="col-sm-5">
+                        <h:inputTextarea value="#{stampController.stamp.description}" cols="20" rows="5" class="form-control" />
+                    </div>
+                </div>
+                
+                <!-- BOUTONS -->
+                <hr/>
+                <div class="btn-group">
+                    <h:commandButton value="Save" type="submit" role="group" action="#{stampController.doSave}" styleClass="btn btn-success" />
+                    <h:commandButton value="Cancel" type="submit" role="group" action="#{stampController.doCancel}" styleClass="btn btn-warning" />
+                </div>
             </h:form>
-            <h:form>
-                <h:commandButton value="Annuler" action="#{stampController.doCancel}"/>
-            </h:form>
-            <hr/>
         </ui:define>
     </ui:composition>
 </html>

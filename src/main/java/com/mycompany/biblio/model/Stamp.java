@@ -26,6 +26,7 @@ public class Stamp implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String title;
+    private int releaseyear;
     private Float price;
     private String country;
     @Column(length = 2000)
@@ -42,13 +43,14 @@ public class Stamp implements Serializable {
     public Stamp() {
     }
 
-    public Stamp(String title, Float price, String country, String description, String ref, String image) {
+    public Stamp(String title, Float price, String country, String description, String ref, String image, int releaseyear) {
         this.title = title;
         this.price = price;
         this.country = country;
         this.description = description;
         this.reference = ref;
         this.image = image;
+        this.releaseyear = releaseyear;
         
     }
 
@@ -91,11 +93,11 @@ public class Stamp implements Serializable {
         this.description = description;
     }
 
-    public String getRef() {
+    public String getReference() {
         return reference;
     }
 
-    public void setRef(String ref) {
+    public void setReference(String ref) {
         this.reference = ref;
     }
 
@@ -104,7 +106,14 @@ public class Stamp implements Serializable {
     }
 
     public void setImage(String img) {
-        this.image = image;
+        this.image = img;
+    }
+    
+    public int getReleaseyear() {
+        return releaseyear;
+    }
+    public void setReleaseyear(int releaseyear) {
+        this.releaseyear = releaseyear;
     }
 
     public Boolean isSelected() {
