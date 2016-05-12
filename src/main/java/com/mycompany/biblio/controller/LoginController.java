@@ -37,11 +37,12 @@ public class LoginController {
 
     public String doLogin() {
         System.out.println("Path info: "+FacesContext.getCurrentInstance().getExternalContext().getRequestPathInfo());
-        AuthenticationToken token= new UsernamePasswordToken(user.getUsername(), user.getPassword());
-        Subject currentUser= SecurityUtils.getSubject(); 
+        AuthenticationToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+        
+        Subject currentUser = SecurityUtils.getSubject(); 
         try {
             currentUser.login( token );
-            //if no exception, that's it, we're done!
+            addInfoMessage("Connexion réussie!", "Bon retour chez nous");
 
             return savedUrl();
         } catch (AuthenticationException e) {
@@ -80,6 +81,10 @@ public class LoginController {
     
     private void addWarnMessage(String summary, String detail) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail));
+    }
+    
+    private void addInfoMessage(String summary, String detail) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO , summary, detail));
     }
 
     public String doLogout() {
