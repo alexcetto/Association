@@ -14,6 +14,7 @@
             <h:form>
                 <div class="container-fluid">
                 <h1>Galerie de timbres</h1>
+                <h:commandButton type="submit" action="#{stampController.doNew}" value="Ajouter un nouveau timbre" styleClass="btn btn-success" />
                 <hr/>
                 <div class="row">
                 <p:dataList value="#{stampController.stampList}" var="stmp" styleClass="datalist-noborder">           
@@ -36,8 +37,8 @@
                                 </ul>
                                 <hr/>
                                 <div class="btn-group">
-                                <h:commandButton value="Edit" type="submit" role="group" action="#{stampController.doEdit}" styleClass="btn btn-primary" />
-                                <h:commandButton value="Delete" type="submit" role="group" action="#{stampController.doDelete(stmp)}" styleClass="btn btn-danger" />
+                                <h:commandButton value="Editer" type="submit" role="group" action="#{stampController.doEdit}" styleClass="btn btn-primary" />
+                                <h:commandButton value="Supprimer" type="submit" role="group" action="#{stampController.doDelete(stmp)}" styleClass="btn btn-danger" />
                                 </div>
                             </div>
                         </div>
@@ -45,19 +46,7 @@
                 </p:dataList>
                 </div>
                 </div>
-                
-                
-                
-                <shiro:hasPermission name="stamp:add">
-                    <h:commandLink action="#{stampController.doNew}">Nouveau livre</h:commandLink>
-                </shiro:hasPermission>
-                <h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
-                <shiro:hasPermission name="stamp:delete">
-                    <h:commandLink action="#{stampController.doDelete}" onclick="return confirmDelete();">Supprimer la s&eacute;lection</h:commandLink>
-                </shiro:hasPermission>
             </h:form>
-            
-            <hr/>
             </ui:define>
     </ui:composition>
 </html>
