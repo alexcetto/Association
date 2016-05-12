@@ -50,9 +50,8 @@ public class StampController {
         return "listBooks.xhtml";
     }
 
-    public String doDelete() {
-        List<Stamp> stamps = (List<Stamp>)stampList.getWrappedData();
-        stampEJB.delete(onlySelected(stamps));
+    public String doDelete(Stamp stmp) {
+        stampEJB.delete(stmp);
         updateStampList();
         return "listBooks.xhtml";
     }
