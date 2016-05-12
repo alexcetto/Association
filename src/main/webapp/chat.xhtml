@@ -44,7 +44,7 @@
                         Name: <p:inputText id="userSender" value="#{messageBean.message.user}"/>
                         Text: <p:inputText id="textSender" value="#{messageBean.message.message}"/>
                         <p:commandButton type="reset" value="Clear"/>
-                        <p:commandButton value="Send!" actionListener="#{messageBean.sendMessage}"/>
+                        <p:commandButton value="Send!" id="buttonSender" actionListener="#{messageBean.sendMessage}"/>
                     </h:panelGrid>
 
                     <p:remoteCommand name="nextMessage" actionListener="#{messageBean.firstUnreadMessage}"

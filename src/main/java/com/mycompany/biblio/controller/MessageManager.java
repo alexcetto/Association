@@ -9,16 +9,17 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import com.mycompany.biblio.model.Message;
  
-/**
- * Simple chat logic
- * @author Danon
- */
+
 @Singleton
 @Startup
 public class MessageManager implements MessageManagerLocal {
  
+    /**
+     * Use of a synchronized list to store the messages
+     * For a temp chat, may be better than SQL
+     */
     private final List messages =
-            Collections.synchronizedList(new LinkedList());;
+            Collections.synchronizedList(new LinkedList());
  
     @Override
     public void sendMessage(Message msg) {
@@ -32,10 +33,6 @@ public class MessageManager implements MessageManagerLocal {
             return null;
         if(after == null)
             return (Message)messages.get(0);
-        /*for(Message m : messages) {
-            if(m.getDateSent().after(after))
-                return m;
-        }*/
         
         Iterator i = messages.iterator();
         

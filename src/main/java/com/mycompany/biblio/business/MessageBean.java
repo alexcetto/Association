@@ -13,10 +13,7 @@ import org.primefaces.context.RequestContext;
 import com.mycompany.biblio.controller.MessageManagerLocal;
 import com.mycompany.biblio.model.Message;
  
-/**
- *
- * @author Anton Danshin
- */
+
 @ManagedBean
 @ViewScoped
 public class MessageBean implements Serializable {
