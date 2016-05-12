@@ -54,6 +54,9 @@ public class MessageBean implements Serializable {
         mm.sendMessage(message);
     }
  
+    /**
+     * Show the last messages unseen by the user.
+     */
     public void firstUnreadMessage(ActionEvent evt) {
        RequestContext ctx = RequestContext.getCurrentInstance();
  

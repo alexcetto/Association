@@ -52,3 +52,15 @@ body#chatPage > .container{
     background:none;
     padding: 1em 1.5em 1em 1.5em;
 }
+
+
+
+/** HOME PART **/
+#imageHeader{
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+}
+#imageHeader> img{
+    width: 100%;
+}
