@@ -34,17 +34,18 @@ and open the template in the editor.
                                 <ul class="dropdown-menu">
                                     <li><a href="#{request.contextPath}/private/listBooks.xhtml">Galerie de timbres</a></li>
                                     <li><a href="#{request.contextPath}/private/newBook.xhtml">Ajouter un timbre</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#{request.contextPath}/private/account.xhtml">Account</a></li>
                                 </ul>
                             </li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <shiro:authenticated>         
-                                <li><h:commandLink action="#{loginController.doLogout()}">Se déconnecter</h:commandLink>
-                                </li>
+                            <shiro:authenticated>
+                                <li><a href="#{request.contextPath}/private/account.xhtml">#{loginController.user.username}</a></li>
+                                <li><h:commandLink action="#{loginController.doLogout()}">Se déconnecter</h:commandLink></li>
                             </shiro:authenticated>
+                            <shiro:notAuthenticated>
+                                <li><a href="#{request.contextPath}/login.xhtml">Connexion</a></li>
+                            </shiro:notAuthenticated>
                         </ul>  
                     </div><!--/.nav-collapse -->
                 </div>

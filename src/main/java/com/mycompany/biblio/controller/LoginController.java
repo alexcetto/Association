@@ -42,6 +42,7 @@ public class LoginController {
         try {
             currentUser.login( token );
             //if no exception, that's it, we're done!
+
             return savedUrl();
         } catch (AuthenticationException e) {
             addWarnMessage("Connexion impossible : ", "vérifiez les paramètres saisis");
@@ -53,9 +54,10 @@ public class LoginController {
         HttpServletRequest origRequest = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         SavedRequest request = WebUtils.getSavedRequest(origRequest);
         
-        String uri = pathWithoutContextFor(request.getRequestURI());
         if (request == null)
-            return facesRedirect(uri);
+             return "/home.xhtml?faces-redirect=true";
+        
+        String uri = pathWithoutContextFor(request.getRequestURI());
 
         if (StringUtils.isEmpty(request.getQueryString())) {
             return facesRedirect(uri);
